@@ -1,6 +1,6 @@
 # Define a imagem base
 ARG PYTHON_VERSION=3.11.5
-FROM python:${PYTHON_VERSION}-slim as base
+FROM python:${PYTHON_VERSION}-slim AS base
 
 # Instala pacote de utilitários
 RUN apt-get update && apt-get install -y procps && rm -rf /var/lib/apt/lists/*

@@ -1,4 +1,4 @@
-# Projeto 4 - Deploy de API Para Geração de Texto a Partir de Imagens com LLM
+# Deploy de API Para Geração de Texto a Partir de Imagens com LLM
 # Módulo Cliente
 
 # Import
@@ -8,14 +8,16 @@ import requests
 url = "http://localhost:3000/api"
 
 # Payload (texto de entrada para o LLM)
-#payload = {'text': (None, 'Which color is the car in the image?')}
+payload = {'text': (None, 'Which color is the car in the image?')}
 #payload = {'text': (None, 'Which color is the elephant in the image?')}
-payload = {'text': (None, 'What is the dog doing in the image?')}
+#payload = {'text': (None, 'What is the dog doing in the image?')}
+#payload = {'text': (None, 'what animal is that in the picture?')}
 
 # Imagem enviada para o modelo
-#file = [('image', open('imagem1.png','rb'))]
-#file = [('image', open('imagem2.png','rb'))]
-file = [('image', open('imagem3.jpg','rb'))]
+file = [('image', open('imagens//imagem1.png','rb'))]
+#file = [('image', open('imagens//imagem2.png','rb'))]
+#file = [('image', open('imagens//imagem3.jpg','rb'))]
+#file = [('image', open('imagens//cat.webp','rb'))]
 
 # Cabeçalho
 headers = {'accept': 'application/json'}

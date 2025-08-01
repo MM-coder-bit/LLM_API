@@ -1,4 +1,4 @@
-# Projeto 4 - Deploy de API Para Geração de Texto a Partir de Imagens com LLM
+# Deploy de API Para Geração de Texto a Partir de Imagens com LLM
 # Módulo para download do LLM
 
 # Importa a classe ViltProcessor para processamento de imagem e texto, e ViltForQuestionAnswering para o modelo de QA
@@ -8,19 +8,19 @@ from transformers import ViltProcessor, ViltForQuestionAnswering
 from PIL import Image
 
 # Carrega o processador pré-treinado específico para tarefas de QA visuais
-dsa_processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
+processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
 
 # Carrega o modelo pré-treinado para responder a perguntas baseadas em imagens e texto
-dsa_model = ViltForQuestionAnswering.from_pretrained('dandelin/vilt-b32-finetuned-vqa')
+model = ViltForQuestionAnswering.from_pretrained('dandelin/vilt-b32-finetuned-vqa')
 
 # Define uma função pipeline para processar texto e imagem e obter uma resposta
-def dsa_model_pipeline(text:str, image:Image):
+def model_pipeline(text:str, image:Image):
 
     # Processa a imagem e o texto juntos, preparando-os para o modelo
-    encoding = dsa_processor(image, text, return_tensors = "pt")
+    encoding = processor(image, text, return_tensors = "pt")
 
     # Passa os dados processados pelo modelo e obtém a saída
-    outputs = dsa_model(**encoding)
+    outputs = model(**encoding)
 
     # Extrai os logits (pontuações não normalizadas) da saída do modelo
     logits = outputs.logits
@@ -29,4 +29,4 @@ def dsa_model_pipeline(text:str, image:Image):
     index = logits.argmax(-1).item()
 
     # Retorna a etiqueta associada ao índice de maior pontuação como a resposta
-    return dsa_model.config.id2label[index]
+    return model.config.id2label[index]

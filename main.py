@@ -1,11 +1,11 @@
-# Projeto 4 - Deploy de API Para Geração de Texto a Partir de Imagens com LLM
+# Deploy de API Para Geração de Texto a Partir de Imagens com LLM
 # Módulo da API
 
 # Importa as classes necessárias do FastAPI para criar a API e gerenciar arquivos e formulários
 from fastapi import FastAPI, UploadFile, File, Form
 
 # Importa a função do modelo para processar a imagem e o texto e retornar uma resposta
-from modelo import dsa_model_pipeline
+from modelo import model_pipeline
 
 # Importa a biblioteca PIL para manipulação de imagens
 from PIL import Image
@@ -25,7 +25,7 @@ app = FastAPI()
 # É uma forma simples de verificar se a sua API está funcionando corretamente.
 @app.get("/")
 def inicio():
-    return {"DSA": "Projeto4"}
+    return {"Mateus Marques": "Projeto: Deploy de API Para Geração de Texto a Partir de Imagens com LLM "}
 
 # Raiz: "http://localhost:3000/"
 # API:  "http://localhost:3000/api"
@@ -52,7 +52,7 @@ async def api(text: str = Form(...), image: UploadFile = File(...)):
     image = Image.open(io.BytesIO(image_contents))
 
     # Chama a função do modelo, passando o texto e a imagem processada, e armazena o resultado
-    resultado = dsa_model_pipeline(text, image)
+    resultado = model_pipeline(text, image)
 
     # Retorna o resultado processado pelo modelo em um dicionário JSON
     return {"Resposta": resultado}
