@@ -1,6 +1,20 @@
 # Deploy de API para Geração de Texto a Partir de Imagens com LLM
 
-Este projeto descreve o processo de deploy de uma API que utiliza um modelo de linguagem de grande escala (LLM) para gerar texto a partir de imagens. As instruções a seguir detalham como configurar o ambiente, construir e executar a aplicação utilizando o Docker, além de executar o cliente para interagir com a API.
+<h1 align="center">
+  <br>
+  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7352730690272006145"><img src="imagens\vilt-b32-finetuned-vqa.png" alt="Markdownify" width="600"></a>
+  <br>
+  Visual Question Answering
+  <br>
+</h1>
+
+Este projeto descreve o processo de deploy de uma API que utiliza o modelo de linguagem de grande escala (LLM) `dandelin/vilt-b32-finetuned-vqa` para interpretar imagens e gerar texto a partir delas. O modelo `dandelin/vilt-b32-finetuned-vqa` é especificamente ajustado para tarefas de Visual Question Answering (VQA), permitindo a extração de informações textuais com base em conteúdo visual. As instruções a seguir detalham como configurar o ambiente, construir e executar a aplicação utilizando o `Docker`, além de executar o cliente para interagir com a `API`.
+
+<h1 align="center">
+  <br>
+  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7352730690272006145"><img src="image\LLM_API.gif" alt="Markdownify" width="600"></a>
+  <br>
+</h1>
 
 ## Pré-requisitos
 
